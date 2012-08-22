@@ -17,7 +17,7 @@ Basically it gets an erb template string and returns the generated slim template
 ```
 require 'erb2slim'
 
-Erb2Slim.convert!(erb_template_string)
+Erb2Slim.convert(erb_template_string)
 ```
 
 
