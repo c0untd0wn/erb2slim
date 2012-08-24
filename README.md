@@ -17,13 +17,17 @@ Basically it gets an erb template string and returns the generated slim template
 ```
 require 'erb2slim'
 
-Erb2Slim.convert(erb_template_string)
+slim_template_string = Erb2Slim.convert(erb_template_string)
 ```
 
 
 ## How it works
 
 [Erb2Slim](https://github.com/c0untd0wn/erb2slim) does not convert erb to slim directly. It first utilizes [haml](https://github.com/haml/haml) which supports converting html containing erb to haml. With this genertated haml, [erb2slim](https://github.com/c0untd0wn/erb2slim) now uses [haml2slim](https://github.com/fredwu/haml2slim) to convert haml to slim.
+
+## Limitations
+
+Currently, it only converts full html(erb) that contains doctype, html, head, and body tag correctly. In case of partial html(erb), the conversion is incorrect due to the limitation of the ``haml`` gem.
 
 ## Required Gems
 
