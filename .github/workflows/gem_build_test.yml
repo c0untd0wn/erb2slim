@@ -18,7 +18,7 @@ jobs:
         with:
           ruby-version: ${{ matrix.ruby }}
           architecture: 'x64'
-      - name: Build and test with Rake
+      - name: Build and test
         run: |
-          gem build erb2slim.gemspec
+          bundle install
           ruby -Ilib:test tests/test_simple.rb
