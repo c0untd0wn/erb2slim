@@ -20,6 +20,11 @@ require 'erb2slim'
 slim_template_string = Erb2Slim.convert(erb_template_string)
 ```
 
+Or the executable utility installed with the gem:
+
+```
+erb2slim my_template.erb
+```
 
 ## How it works
 
