@@ -6,14 +6,19 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-
+    
+    strategy:
+      matrix:
+        ruby: [ '2.x', '3.x' ]
+    name: Test on Ruby ${{ matrix.ruby }}
     steps:
-    - uses: actions/checkout@master
-    - name: Set up Ruby 2.6.3
-      uses: actions/setup-ruby@v1
-      with:
-        version: 2.6.3
-    - name: Build and test with Rake
-      run: |
-        gem build erb2slim.gemspec
-        ruby -Ilib:test tests/test_simple.rb
+      - uses: actions/checkout@master
+      - name: Setup ruby ${{ matrix.ruby }}
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby }}
+          architecture: 'x64'
+      - name: Build and test with Rake
+        run: |
+          gem build erb2slim.gemspec
+          ruby -Ilib:test tests/test_simple.rb
