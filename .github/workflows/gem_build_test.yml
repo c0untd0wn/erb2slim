@@ -1,10 +1,6 @@
 name: Gem Test
 
 on:
-  push:
-    branches:
-    - master
-    - tmp/*
   pull_request:
     branches:
     - master
