@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+require 'erb2slim'
+
+erb = IO.read(ARGV[0])
+
+STDOUT << Erb2Slim.convert(erb)
